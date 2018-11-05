@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,14 +10,19 @@ public class GameManager : MonoBehaviour
     public GameObject m_NextButton;
     private bool m_ReadyForInput;
     private Player m_Player;
-
-
+   
+    
+    public void PlayGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+ 
     void Start()
+    
     {
         m_NextButton.SetActive(false);
         ResetScene();
     }
-
 
     void Update()
     {
